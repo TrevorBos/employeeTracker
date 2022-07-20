@@ -10,7 +10,7 @@ VALUES
 ("Harry", "Potter", 2, 1 );
 
 -- Add into the created roleTable from the schema file
-INSERT INTO roleTable (title, salary,department_id)
+INSERT INTO roleTable (title, salary, department_id)
 VALUES
 ("Manager", 8765432, 1),
 ("Accountant", 3352567, 2),
