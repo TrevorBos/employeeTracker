@@ -1,4 +1,4 @@
-// add variables for the npm packages and anything else
+// add variables for the npm packages and anything else needed
 
 // create the connection between mysql and application
 
