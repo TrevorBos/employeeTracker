@@ -20,11 +20,11 @@ VALUES
 INSERT INTO employeeTable(first_name, last_name, role_id, manager_id)
 VALUES
 ("Trevor", "Bos", 1, 1 ),
-("Jake", "Wright", 2, 1 ),
-("Mandy", "Brandt", 5, 1 ),
-("Test", "Dummy", 3, 1 ),
-("Melissa", "Bee", 4, 1 ),
-("Gerry", "Conta", 1, 1 ),
-("Harry", "Potter", 2, 1 );
+("Jake", "Wright", 2, 2 ),
+("Mandy", "Brandt", 5, 3 ),
+("Test", "Dummy", 3, 4 ),
+("Melissa", "Bee", 4, 5 ),
+("Gerry", "Conta", 1, 6 ),
+("Harry", "Potter", 2, 7 );
 
 
