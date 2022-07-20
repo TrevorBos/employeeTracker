@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 const db = require("./routes/connection");
+const mysql = require('mysql2')
 
 // If connection is successful run the code below
 db.connect((err) => {
@@ -33,7 +34,7 @@ function employeeTrackerApp() {
         "Add Department",
         "Add Role",
         "Update Role",
-        "View Department Budgets",
+        "Delete Employee",
         "Nevermind"
       ],
     })
@@ -54,8 +55,8 @@ function employeeTrackerApp() {
         addEmployeeRole();
       } else if (answer.selection === "Update Role") {
         updateEmployeeRole();
-      } else if (answer.selection === "View Department Budgets") {
-        viewDepartmentBudgets();
+      } else if (answer.selection === "Delete Employee") {
+        deleteEmployee();
       } else if (answer.selection === "Nevermind") {
         db.end();
       }
@@ -315,4 +316,3 @@ function updateEmployeeRole() {
 
 // Bonus stuff
 
-// view budgets 
