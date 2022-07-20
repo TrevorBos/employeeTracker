@@ -17,5 +17,15 @@ CREATE TABLE employeeTable (
 );
 
 -- CREATE ROLE TABLE
+CREATE TABLE employeeRole (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    salary DECIMAL NOT NULL,
+    department_id INT,
+);
 
 -- CREATE DEPARTMENT TABLE
+CREATE TABLE employeeDepartment (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+);
