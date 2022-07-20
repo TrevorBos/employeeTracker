@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 const db = require("./routes/connection");
-const mysql = require('mysql2')
+const mysql = require("mysql2");
 
 // If connection is successful run the code below
 db.connect((err) => {
@@ -34,7 +34,12 @@ function employeeTrackerApp() {
         "Add Department",
         "Add Role",
         "Update Role",
+<<<<<<< HEAD
         "Nevermind"
+=======
+        "Delete Employee",
+        "Nevermind",
+>>>>>>> e6553dd19ce040ff3d2a6bf2360e4dfc2637ea6c
       ],
     })
     .then(function (answer) {
@@ -312,4 +317,4 @@ function updateEmployeeRole() {
 }
 
 // Bonus stuff
-
+// I tried but couldnt figure it out.
