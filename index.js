@@ -34,12 +34,7 @@ function employeeTrackerApp() {
         "Add Department",
         "Add Role",
         "Update Role",
-<<<<<<< HEAD
-        "Nevermind"
-=======
-        "Delete Employee",
         "Nevermind",
->>>>>>> e6553dd19ce040ff3d2a6bf2360e4dfc2637ea6c
       ],
     })
     .then(function (answer) {
