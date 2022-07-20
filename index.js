@@ -6,6 +6,7 @@ const db = require("./routes/connection");
 // If connection is successful run the code below
 db.connect((err) => {
   if (err) throw err;
+  console.log("Welcome to the Employee Tracker!");
 
   employeeTrackerApp();
 });
@@ -125,12 +126,117 @@ function lookupDepts() {
 }
 
 // Add employee information
+function addEmployee() {
+  lookuprole();
+  lookupEmployee();
+
+  inquirer
+    .prompt([
+      {
+        name: "firstname",
+        type: "input",
+        message: "What is the employee's first name?",
+      },
+
+      {
+        name: "lastname",
+        type: "input",
+        message: "What is the employee's last name?",
+      },
+
+      {
+        name: "role",
+        type: "list",
+        message: "What is the employee's role?",
+        choices: userRoles,
+      },
+
+      {
+        name: "reportingTo",
+        type: "list",
+        message: "Who is the employee's manager?",
+        choices: userEmployees,
+      },
+    ])
+    .then(function (answer) {
+      var getRoleId = answer.role.split("-");
+      var getReportingToId = answer.reportingTo.split("-");
+      var query = `INSERT INTO employeeTable (first_name, last_name, role_id, manager_id)
+     VALUES ('${answer.firstname}','${answer.lastname}','${getRoleId[0]}','${getReportingToId[0]}')`;
+      db.query(query, function (err, res) {
+        console.log(
+          `New employee ${answer.firstname} ${answer.lastname} has been added!`
+        );
+      });
+      employeeTrackerApp();
+    });
+}
 
 // Add Role information
+function addEmployeeRole() {
+  lookuprole();
+  lookupEmployee();
+  lookupDepts();
+
+  inquirer
+    .prompt([
+      {
+        name: "role",
+        type: "input",
+        message: "Enter the role you would like to add:",
+      },
+
+      {
+        name: "dept",
+        type: "list",
+        message: "In what department would you like to add this role?",
+        choices: userDepartments,
+      },
+
+      {
+        name: "salary",
+        type: "number",
+        message: "Enter the role's salary:",
+      },
+    ])
+    .then(function (answer) {
+      console.log(`${answer.role}`);
+      var getDeptId = answer.dept.split("-");
+      var query = `INSERT INTO roleTable (title, salary, department_id)
+     VALUES ('${answer.role}','${answer.salary}','${getDeptId[0]}')`;
+      db.query(query, function (err, res) {
+        console.log(`A new role ${answer.role} has been added!`);
+      });
+      employeeTrackerApp();
+    });
+}
 
 // Add department information
+function addDepartment() {
+  lookuprole();
+  lookupEmployee();
+  lookupDepts();
+
+  inquirer
+    .prompt([
+      {
+        name: "dept",
+        type: "input",
+        message: "Enter the department you would like to add:",
+      },
+    ])
+    .then(function (answer) {
+      var query = `INSERT INTO departmentTable (name)
+     VALUES ('${answer.dept}')`;
+      db.query(query, function (err, res) {
+        console.log(`A new department ahs been added: ${answer.dept}-------`);
+      });
+      employeeTrackerApp();
+    });
+}
 
 // Update employee Role information
+
 
 // Export
 // module.exports = {employeeTrackerApp};
