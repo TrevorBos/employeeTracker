@@ -87,11 +87,42 @@ function viewDepartments() {
   });
 }
 
+// Necessary arrays
+var userRoles = [];
+var userEmployees = [];
+var userDepartments = [];
+
 // Look up employee
+function lookupEmployee() {
+  db.query("SELECT * FROM employeeTable", function (err, data) {
+    if (err) throw err;
+    for (i = 0; i < data.length; i++) {
+      userEmployees.push(
+        data[i].id + "-" + data[i].first_name + " " + data[i].last_name
+      );
+    }
+  });
+}
 
 // Look Up role
+function lookuprole() {
+  db.query("SELECT * FROM roleTable", function (err, data) {
+    if (err) throw err;
+    for (i = 0; i < data.length; i++) {
+      userRoles.push(data[i].id + "-" + data[i].title);
+    }
+  });
+}
 
 // Look up Department
+function lookupDepts() {
+  db.query("SELECT * FROM departmentTable", function (err, data) {
+    if (err) throw err;
+    for (i = 0; i < data.length; i++) {
+      userDepartments.push(data[i].id + "-" + data[i].name);
+    }
+  });
+}
 
 // Add employee information
 
