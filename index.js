@@ -1,6 +1,25 @@
 // add variables for the npm packages and anything else needed
+const mysql = require("mysql2");
+const inquirer = require("inquirer");
+const cTable = require("console.table");
 
-// create the connection between mysql and application
+// Connect to the database (mysql)
+const db = mysql.createConnection(
+    {
+      host: "localhost",
+      user: "root",
+      password: "Bashi1996",
+      database: "employeeTracker",
+    },
+    console.log("Connected to the database `Employee Tracker` enjoy!")
+  );
+
+// If connection is successful run the code below
+db.connect((err) => {
+    if (err) throw err;
+
+    employeeTrackerApp();
+})
 
 // inquirer stuff - Ask the user what they would like to do
 
