@@ -6,7 +6,14 @@ const db = require("./routes/connection");
 // If connection is successful run the code below
 db.connect((err) => {
   if (err) throw err;
-  console.log("Welcome to the Employee Tracker!");
+  console.log(
+    `     -------------------------------------------------
+    -                                                 -
+    -    Welcome to the amazing EMPLOYEE TRACKER!     -
+    -      Keep track of your staff with eaze!        -
+    -                                                 -
+     -------------------------------------------------`
+  );
 
   employeeTrackerApp();
 });
@@ -26,6 +33,8 @@ function employeeTrackerApp() {
         "Add Department",
         "Add Role",
         "Update Role",
+        "View Department Budgets",
+        "Nevermind"
       ],
     })
     .then(function (answer) {
@@ -45,7 +54,9 @@ function employeeTrackerApp() {
         addEmployeeRole();
       } else if (answer.selection === "Update Role") {
         updateEmployeeRole();
-      } else {
+      } else if (answer.selection === "View Department Budgets") {
+        viewDepartmentBudgets();
+      } else if (answer.selection === "Nevermind") {
         db.end();
       }
     });
@@ -302,5 +313,6 @@ function updateEmployeeRole() {
   });
 }
 
-// Export
-// module.exports = {employeeTrackerApp};
+// Bonus stuff
+
+// view budgets 
