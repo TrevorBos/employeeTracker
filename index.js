@@ -34,7 +34,6 @@ function employeeTrackerApp() {
         "Add Department",
         "Add Role",
         "Update Role",
-        "Delete Employee",
         "Nevermind"
       ],
     })
@@ -55,8 +54,6 @@ function employeeTrackerApp() {
         addEmployeeRole();
       } else if (answer.selection === "Update Role") {
         updateEmployeeRole();
-      } else if (answer.selection === "Delete Employee") {
-        deleteEmployee();
       } else if (answer.selection === "Nevermind") {
         db.end();
       }
