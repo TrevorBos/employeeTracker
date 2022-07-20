@@ -1,18 +1,7 @@
 // add variables for the npm packages and anything else needed
-const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const cTable = require("console.table");
-
-// Connect to the database (mysql)
-const db = mysql.createConnection(
-  {
-    host: "localhost",
-    user: "root",
-    password: "Bashi1996",
-    database: "employeeTracker",
-  },
-  console.log("Connected to the database `Employee Tracker` enjoy!")
-);
+const db = require("./routes/connection");
 
 // If connection is successful run the code below
 db.connect((err) => {
@@ -111,3 +100,6 @@ function viewDepartments() {
 // Add department information
 
 // Update employee Role information
+
+// Export
+// module.exports = {employeeTrackerApp};
